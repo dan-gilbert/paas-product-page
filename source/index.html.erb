@@ -38,22 +38,32 @@ title:
 <div class="container">
   <section class="content-section">
       <h2 class="heading-large content-section__first-heading">
-        One command and your application is deployed
+        Simple enough for prototyping.<br>
+        Configurable enough for production.
       </h2>
       <div class="grid-row">
         <div class="column-one-third">
+          <div class="command">
+            cf push my-app
+          </div>
           <p class="content-section__body">
-            Something something public URL
+            One command gets your app up and running on the internet
           </p>
         </div>
         <div class="column-one-third">
+          <div class="command">
+            cf scale my-app -i 5
+          </div>
           <p class="content-section__body">
-            Scaling is easy
+            Scale up the number of instances in seconds to meet demand
           </p>
         </div>
         <div class="column-one-third">
+          <div class="command">
+            edit manifest.yml
+          </div>
           <p class="content-section__body">
-            Spin up new apps
+            Easy, repeatable configuration to manage your service’s growth
           </p>
         </div>
       </div>
@@ -77,18 +87,19 @@ title:
           one provider.
         </p>
         <ul class="list list-bullet">
-          <li>It removes the heavy-lifting of setting up a hosting infrastructure, and frees your web ops time</li>
-          <li>Apps hosted on PaaS are not locked into one provider, ensuring high-portability</li>
           <li>It’s easy to procure (...)</li>
           <li>The platform is pre-accredited (for …?)</li>
           <li>[security?]</li>
           <li>It operates across three different availability regions, providing 99.98% uptime</li>
           <li>(plans for UK hosting)</li>
-          <li>It offers 24-hour platform-level support</li>
-          <li>It’s possible to test an application on the free plan before provisioning for a beta service</li>
-          <li>Service teams can go from prototype to production without replatforming</li>
         </ul>
-        <h2 class="heading-large content-section__first-heading">Who else is on GOV.UK PaaS</h2>
+        <h2>It’s supported</h2>
+                  <li>It offers 24-hour platform-level support</li>
+                  <p>
+                    Supported 24 hours a day, 7 days a week by the team that
+                    builds it.
+                  </p>
+        <h2 class="heading-large content-section__first-heading">It’s trusted</h2>
         <p class="content-section__body">
           <img src="/images/logos/co.png" alt="Cabinet Office" height="72" style="margin-right: 30px">
           <img src="/images/logos/dit.png" alt="Department for Internation Trade" height="72">
@@ -106,6 +117,7 @@ title:
           focus their time and budget on building and maintaining their
           application.
         </p>
+
       </section>
     </div>
   </div>
