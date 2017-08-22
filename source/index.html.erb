@@ -50,19 +50,28 @@ title:
   </section>
   <section class="content-section">
       <h2 class="heading-medium content-section__first-heading">
-        Simple enough for prototyping,
-        configurable enough for production
+        Simple enough for prototyping
       </h2>
       <div class="grid-row">
-        <div class="column-one-third">
+        <div class="column-half">
+          <p class="content-section__body">
+            One command gets your app up and running on the internet.
+            No setup. No operations team.
+          </p>
+        </div>
+        <div class="column-half">
           <div class="command">
             cf push my-app
           </div>
-          <p class="content-section__body">
-            One command gets your app up and running on the internet
-          </p>
         </div>
-        <div class="column-one-third">
+      </div>
+  </section>
+  <section class="content-section">
+      <h2 class="heading-medium content-section__first-heading">
+        Configurable enough for production
+      </h2>
+      <div class="grid-row">
+        <div class="column-half">
           <div class="command">
             cf scale my-app -i 5
           </div>
@@ -70,7 +79,7 @@ title:
             Scale up the number of instances in seconds to meet demand
           </p>
         </div>
-        <div class="column-one-third">
+        <div class="column-half">
           <div class="command">
             edit manifest.yml
           </div>
