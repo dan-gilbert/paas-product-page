@@ -34,59 +34,64 @@ title: Features
 
 
     <div class="column-two-thirds">
-      <h1 class="heading-xlarge">Features, use and support of GOV.UK PaaS</h1>
-      <p>GOV.UK PaaS is a robust, secure and highly available platform to deploy and manage both live and prototype applications.</p>
-
-      <p>You can use it to host applications written in these languages:</p>
-
-        <ul class="list list-bullet">
-            <li>Go</li>
-            <li>Node.js</li>
-            <li>Java (and other JVM-based languages such as Scala)</li>
-            <li>PHP</li>
-            <li>Python</li>
-            <li>Ruby</li>
-        </ul>
-      <p>or:</p>
-      <ul>
-            <li>a static HTML/CSS/Javascript site</li>
-            <li>a compiled binary</li>
-
+      <h1 class="heading-xlarge">Features</h1>
+      </ul>
+      <h2 class="heading-medium">The basics</h2>
+      <ul class="list list-bullet">
+      <li>GOV.UK PaaS runs from Amazon Web Services in Ireland. UK-based hosting is being planned for 2018.</li>
+      <li>It’s resilient since it operates across three independent availability zones</li>
+      <li>It’s built on an open source platform (Cloud Foundry)</li>
+      <li>Applications aren’t locked into one cloud provider, offering greater flexibility</li>
+      <li>The source code behind the platform is open and reusable. You can use our source code if you want to support a different backing service.</li>
+      </ul>
+      <h2 class="heading-medium">Security</h2>
+      <ul class="list list-bullet">
+      <li>It’s accredited for handling personal and confidential information classified as Official</li>
+      <li>It allows SSH access to containers</li>
+      <li>Applications running on the platform are isolated from each other so they can’t read or change each other's code, data or logs.</li>
+      </ul>
+      <h2 class="heading-medium">Languages supported</h2>
+      <ul class="list list-bullet">
+      <li>Go</li>
+      <li>Node.js</li>
+      <li>Java (and other JVM-based languages such as Scala)</li>
+      <li>PHP</li>
+      <li>Python</li>
+      <li>Ruby</li>
+      <li>A static HTML/CSS/Javascript site</li>
+      <li>A compiled binary.</li>
+      </ul>
+      <p>GOV.UK PaaS allows the use of custom buildpacks and Docker images (with limited functionality) to enable other technologies. Keep in mind that we can provide limited support for the maintenance of custom libraries and frameworks.</p>
+      <h2 class="heading-medium">Backing services</h2>
+      <ul class="list list-bullet">
+      <li>PostgreSQL and MySQL database services (powered by AWS)</li>
+      <li>MongoDB</li>
       </ul>
 
-      <p>You can provision a PostgreSQL or MySQL database and bind it to your application. MongoDB is available in private beta, with other backing services to follow.</p>
+      <h2 class="heading-medium">Provisioning</h2>
+      <ul class="list list-bullet">
+      <li>It takes a few minutes to create sandbox and testing environments, and even less to delete them once you don’t need them anymore</li>
+      <li>Set up a new DB or service in minutes with the CloudFoundry command line or an API: no tickets or requests required</li>
+      <li>Service teams can grow their service from prototype to production without replatforming.</li>
+      </ul>
+      <h2 class="heading-medium">Deploying and running apps</h2>
+      <ul class="list list-bullet">
+      <li>Manage applications with the CloudFoundry command line or API</li>
+      <li>Scale applications up and downs in seconds</li>
+      <li>You can build on the API or the command line to enable auto-scaling</li>
+      <li>Deploy from Travis CI</li>
+      <li>Use a custom domain to host your app</li>
+      </ul>
+      <h2 class="heading-medium">Performance</h2>
+      <ul class="list list-bullet">
+      <li>You can check the status of the platform on</li>
+      <li>Application logs can be streamed to SaaS logging platforms if service teams need to monitor app-specific performance metrics.</li>
+      </ul>
 
-      <p>The GOV.UK PaaS team are responsible for maintaining the infrastructure, operating systems and language runtimes to make sure your applications stay secure. </p>
+      <h2 class="heading-medium">Support and maintenance</h2>
+      <p>The GOV.UK PaaS team provides platform-level support 24/7. If your team is experiencing any issue using the platform we can provide assistance during office hours.</p>
+      <p>The GOV.UK PaaS team is in charge of monitoring the infrastructure, and patching operating systems and infrastructure components. We use zero downtime deploys, so upgrades to the PaaS won't interfere with the running of your application.</p>
 
-      <h2 class="heading-large">How it’s built</h2>
-      <p>GOV.UK PaaS is built using the open source <a href="https://www.cloudfoundry.org/">Cloud Foundry project</a> and runs on Amazon Web Services (AWS). You don’t have to interact with AWS directly. You can deploy and manage your applications through Cloud Foundry commands.</p>
-      <p>GOV.UK PaaS is scalable depending on your application's load. We use zero downtime deploys, so upgrades to the PaaS won't interfere with the running of your application.</p>
-      <p>Applications running on the platform are isolated from each other so they can’t read or change each other's code, data or logs.</p>
-
-      <h2 class="heading-large">How you can use GOV.UK PaaS</h2>
-      <p>GOV.UK PaaS is designed to be self-service, so you have complete control over deploying and managing your applications. This allows your application developers to work and iterate quickly and allows the PaaS team to focus on improving the platform itself.</p>
-
-      <p>Application teams manage all of the components that relate to your application, such as user-facing front end applications, back end APIs, supporting backing services (such as databases and caches), scheduled tasks and application security. It is also easy to ship application logs to a logging infrastructure of your choice.</p>
-
-      <p>GOV.UK PaaS manages the platform components involved with hosting, such as infrastructure, platform-level logging and monitoring, provisioning backing services, securing the infrastructure and ensuring the platform is highly available.</p>
-
-      <p>To interact with GOV.UK PaaS you use the Cloud Foundry command line. There’s a <a href="https://docs.cloud.service.gov.uk/#quick-setup-guide">quick setup guide</a> on how to do this.</p>
-
-      <h2 class="heading-large">GOV.UK PaaS future plans</h2>
-
-      <p>Our team is working on adding more features to GOV.UK PaaS, such as adding Redis and Elasticsearch as backing services, and enabling self-service SSL certificate management. Any new features are prioritised according to what users across government need.</p>
-
-      <p>Read the <a href="/roadmap.html">GOV.UK PaaS roadmap</a> to find out more about how the PaaS will develop.</p>
-
-      <h2 class="heading-large">How GOV.UK PaaS is supported</h2>
-
-      <p>GOV.UK PaaS is supported by the PaaS team’s web ops engineers, so the same specialists building the platform are the ones who'll diagnose and fix any problems with the infrastructure that might affect your application.</p>
-
-      <p>We now provide support 24 hours a day, 7 days a week.</p>
-
-      <h2 class="heading-large">Contact the GOV.UK PaaS team</h2>
-
-      <p><a href="/support.html">Contact us</a> to find out more about how GOV.UK PaaS is built and how you can use it.</p>
     </div>
   </div>
 </div>
