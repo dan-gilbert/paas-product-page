@@ -13,10 +13,14 @@
  */
 
 .content-section {
-  margin-top: $gutter;
+  margin-top: $gutter * 2;
 
   &__image {
     max-width: 100%;
+  }
+
+  &__first-heading {
+    margin-top: 0;
   }
 
   &--with-top-border {
