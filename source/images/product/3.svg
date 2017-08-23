@@ -4,23 +4,38 @@
 	 viewBox="0 0 543 355.6" style="enable-background:new 0 0 543 355.6;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#BFC1C3;}
-	.st1{fill:#262626;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st1{fill:#262626;stroke:#969696;stroke-miterlimit:10;}
 	.st2{fill:none;}
-	.st3{opacity:0.4;}
-	.st4{fill:#FFFFFF;}
-	.st5{font-family:'Inconsolata';}
-	.st6{font-size:24px;}
+	.st3{fill:#666666;}
+	.st4{font-family:'Inconsolata';}
+	.st5{font-size:24px;}
+	.st6{fill:#FFFFFF;}
+	.st7{enable-background:new    ;}
 </style>
 <g>
 	<path class="st0" d="M542,345.1c0,3.8-2.9,7-6.4,7H7.4c-3.5,0-6.4-3.2-6.4-7V7.9c0-3.8,2.9-7,6.4-7h528.2c3.5,0,6.4,3.2,6.4,7
-		V345.1z"/>
+		L542,345.1L542,345.1z"/>
 </g>
 <rect x="6.2" y="38.3" class="st1" width="530.1" height="309.5"/>
 <rect x="20.7" y="55" class="st2" width="485" height="278.9"/>
-<text transform="matrix(1 0 0 1 20.7378 71.0052)" class="st3"><tspan x="0" y="0" class="st4 st5 st6">4</tspan><tspan x="0" y="28.8" class="st4 st5 st6">5</tspan><tspan x="0" y="57.6" class="st4 st5 st6">6</tspan><tspan x="0" y="86.4" class="st4 st5 st6">7</tspan><tspan x="0" y="115.2" class="st4 st5 st6">8</tspan><tspan x="0" y="144" class="st4 st5 st6">9</tspan><tspan x="0" y="172.8" class="st4 st5 st6">10</tspan><tspan x="0" y="201.6" class="st4 st5 st6">11</tspan><tspan x="0" y="230.4" class="st4 st5 st6">12</tspan><tspan x="0" y="259.2" class="st4 st5 st6">13</tspan></text>
+<text transform="matrix(1 0 0 1 20.7378 71.0052)" class="st3 st4 st5">4</text>
+<text transform="matrix(1 0 0 1 20.7378 99.8052)" class="st3 st4 st5">5</text>
+<text transform="matrix(1 0 0 1 20.7378 128.6052)" class="st3 st4 st5">6</text>
+<text transform="matrix(1 0 0 1 20.7378 157.4052)" class="st3 st4 st5">7</text>
+<text transform="matrix(1 0 0 1 20.7378 186.2052)" class="st3 st4 st5">8</text>
+<text transform="matrix(1 0 0 1 20.7378 215.0052)" class="st3 st4 st5">9</text>
+<text transform="matrix(1 0 0 1 20.7378 243.8052)" class="st3 st4 st5">10</text>
+<text transform="matrix(1 0 0 1 20.7378 272.6052)" class="st3 st4 st5">11</text>
+<text transform="matrix(1 0 0 1 20.7378 301.4052)" class="st3 st4 st5">12</text>
+<text transform="matrix(1 0 0 1 20.7378 330.2052)" class="st3 st4 st5">13</text>
 <rect x="65.7" y="55" class="st2" width="485" height="278.9"/>
-<text transform="matrix(1 0 0 1 65.7378 71.0052)"><tspan x="0" y="0" class="st4 st5 st6">routes:</tspan><tspan x="0" y="28.8" class="st4 st5 st6">- route: www.myapp.example.gov.uk</tspan><tspan x="0" y="86.4" class="st4 st5 st6">instances: 4</tspan><tspan x="0" y="144" class="st4 st5 st6">memory: 1Gb</tspan><tspan x="0" y="201.6" class="st4 st5 st6">services:</tspan><tspan x="0" y="230.4" class="st4 st5 st6">- example_api</tspan></text>
-<ellipse class="st4" cx="17.3" cy="20.7" rx="9.3" ry="10.3"/>
-<ellipse class="st4" cx="44.6" cy="20.7" rx="9.3" ry="10.3"/>
-<ellipse class="st4" cx="72" cy="20.7" rx="9.3" ry="10.3"/>
+<text transform="matrix(1 0 0 1 65.7378 71.0052)" class="st6 st4 st5">routes:</text>
+<text transform="matrix(1 0 0 1 65.7378 99.8052)" class="st6 st4 st5">- route: www.myapp.example.gov.uk</text>
+<text transform="matrix(1 0 0 1 65.7378 157.4052)" class="st6 st4 st5">instances: 4</text>
+<text transform="matrix(1 0 0 1 65.7378 215.0052)" class="st6 st4 st5">memory: 1Gb</text>
+<text transform="matrix(1 0 0 1 65.7378 272.6052)" class="st6 st4 st5">services:</text>
+<text transform="matrix(1 0 0 1 65.7378 301.4052)" class="st7"><tspan x="0" y="0" class="st6 st4 st5">- cache</tspan><tspan x="0" y="28.8" class="st6 st4 st5">- database</tspan></text>
+<ellipse class="st6" cx="17.1" cy="20.7" rx="9.3" ry="9.3"/>
+<ellipse class="st6" cx="43.3" cy="20.7" rx="9.3" ry="9.3"/>
+<ellipse class="st6" cx="69.6" cy="20.7" rx="9.3" ry="9.3"/>
 </svg>
