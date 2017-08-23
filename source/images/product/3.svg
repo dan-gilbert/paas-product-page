@@ -32,7 +32,7 @@
 <text transform="matrix(1 0 0 1 65.7378 71.0052)" class="st6 st4 st5">routes:</text>
 <text transform="matrix(1 0 0 1 65.7378 99.8052)" class="st6 st4 st5">- route: www.myapp.example.gov.uk</text>
 <text transform="matrix(1 0 0 1 65.7378 157.4052)" class="st6 st4 st5">instances: 4</text>
-<text transform="matrix(1 0 0 1 65.7378 215.0052)" class="st6 st4 st5">memory: 1Gb</text>
+<text transform="matrix(1 0 0 1 65.7378 215.0052)" class="st6 st4 st5">memory: 1G</text>
 <text transform="matrix(1 0 0 1 65.7378 272.6052)" class="st6 st4 st5">services:</text>
 <text transform="matrix(1 0 0 1 65.7378 301.4052)" class="st7"><tspan x="0" y="0" class="st6 st4 st5">- cache</tspan><tspan x="0" y="28.8" class="st6 st4 st5">- database</tspan></text>
 <ellipse class="st6" cx="17.1" cy="20.7" rx="9.3" ry="9.3"/>
