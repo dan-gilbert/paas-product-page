@@ -6,7 +6,7 @@
 	.st0{fill:#BFC1C3;}
 	.st1{fill:#313131;enable-background:new    ;}
 	.st2{fill:#FFFFFF;}
-	.st3{fill:#FFFFFF;stroke:#7C7C7C;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;stroke:#A7A7A8;stroke-miterlimit:10;}
 	.st4{fill:#009347;stroke:#FFFFFF;stroke-miterlimit:10;}
 	.st5{fill:#D2D2D2;}
 	.st6{fill:#0A0A0A;}
@@ -35,7 +35,7 @@
 <rect x="78.9" y="270.7" class="st5" width="285.3" height="15.2"/>
 <rect x="78.9" y="247.2" class="st5" width="361.3" height="15.2"/>
 <rect x="78.9" y="223.7" class="st5" width="316.1" height="15.2"/>
-<rect x="64.4" y="168.7" class="st6" width="458.3" height="38.9"/>
+<rect x="64.4" y="168.7" class="st6" width="472" height="38.9"/>
 <rect x="77.2" y="127.8" class="st7" width="432.5" height="29.8"/>
 <text transform="matrix(1 0 0 1 77.2194 147.4381)" class="st8 st9">https://my-app.cloudapps.digital</text>
 <circle class="st2" cx="74.1" cy="100" r="8.3"/>
