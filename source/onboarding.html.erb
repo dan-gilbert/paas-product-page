@@ -11,62 +11,69 @@ title: Onboarding to GOV.UK PaaS
       <a href="/" itemprop="item"><span itemprop="name">GOV.UK PaaS</span></a>
     </li>
     <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-      <a href="#main" itemprop="item"><span itemprop="name">Onboarding</span></a>
+      <a href="#main" itemprop="item"><span itemprop="name">Get started</span></a>
     </li>
   </ol>
 </nav>
 
+
+
 <div class="container">
   <div class="grid-row">
     <div class="column-two-thirds">
-      <h1 class="heading-xlarge">GOV.UK PaaS onboarding</h1>
-
+      <h1 class="heading-xlarge">Get started</h1>
       <p>
-        This sets out the typical journey for building a public-facing service with an in-house development team.
-        It assumes you&apos;re building according to the Digital Service Standard and the Service Manual.
-        If you&apos;re <a href="#migrating">migrating an existing application</a>, or <a href="#suppliers">working with suppliers</a> there are additional factors to consider; we discuss these at the bottom.
+        This is a typical journey for building a public-facing service with an in-house development team.
+        It assumes you&apos;re building according to the <a href="https://www.gov.uk/service-manual/service-standard">Digital Service Standard</a> and the <a href="https://www.gov.uk/service-manual">Service Manual</a>.
       </p>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="column-two-thirds">
 
-      <h2>1. Initial evaluation</h2>
+      <h2 class="task-list-section"><span class="task-list-section-number">1.</span> Check GOV.UK PaaS is right for you</h2>
+        <div class="task-list-items">
+            <p>Check your project’s needs against our <a href="/features.html">current features</a> and <a href="/roadmap.html">product roadmap</a>.</p>
+        </div>
 
-      <p>
-      <ul>
+      <h2 class="task-list-section"><span class="task-list-section-number">2.</span> Get a trial account</h2>
+        <div class="task-list-items">
+            <p><a href="request-trial-choose.html">Request an account</a> and add other team members, if appropriate.</p>
+        </div>
 
-        <li>Check your project’s needs against our <a href="/features.html">current features</a> and <a href="/roadmap.html">product roadmap</a></li>
-        <li><a href="request-trial.html">Request a trial account</a> and set your password</li>
-        <li>Use <a href="https://docs.cloud.service.gov.uk/#quick-setup-guide">‘Getting Started’</a> guide to deploy a static site to test your connection</li>
-        <li>Read the orientation guide for your language to understand what PaaS already does for you</li>
-        <li>Push some sample code for your project:
-          <ul>
-            <li>Use the platform marketplace to request “trial plan” <a href="https://docs.cloud.service.gov.uk/#deploy-a-backing-or-routing-service">services such as databases</a></li>
-            <li>Bind the services to your apps with the command line, then get your app to look at environment variables so it can <a href="https://docs.cloud.service.gov.uk/#accessing-the-service-from-your-app">connect to the services</a>.</li>
-            <li>Make any other similar changes to your code to fit with the “12 factor app” principles for cloud scalability</li>
-            <li>Read our <a href="https://docs.cloud.service.gov.uk/#troubleshooting-2">troubleshooting documentation</a> to help you overcome any problems</li>
-            <li>Raise tickets with <a href="support.html">support</a> if needed</li>
-          </ul>
-        </li>
-      </ul>
-    </p>
-    <h2>2. Collaborate with your team on the platform</h2>
+      <h2 class="task-list-section"><span class="task-list-section-number">3.</span> Test using the platform</h2>
+      <div class="task-list-items">
+          <p>Use <a href="https://docs.cloud.service.gov.uk/#quick-setup-guide">‘Getting Started’</a> guide to deploy a static site to test your connection. Read the orientation guide for your language to understand what PaaS already does for you.</p>
+          
+          <p>Push some sample code for your project:</p>
+            <p>
+            <ul class="list list-bullet">
+              <li>Use the platform marketplace to request “trial plan” <a href="https://docs.cloud.service.gov.uk/#deploy-a-backing-or-routing-service">services such as databases</a></li>
+              <li>Bind the services to your apps with the command line, then get your app to look at environment variables so it can <a href="https://docs.cloud.service.gov.uk/#accessing-the-service-from-your-app">connect to the services</a>.</li>
+              <li>Make any other similar changes to your code to fit with the “12 factor app” principles for cloud scalability</li>
+              <li>Read our <a href="https://docs.cloud.service.gov.uk/#troubleshooting-2">troubleshooting documentation</a> to help you overcome any problems</li>
+              <li>Raise tickets with <a href="support.html">support</a> if needed</li>
+            </ul>
+            </p>
+            <p>Consider <a href="https://docs.cloud.service.gov.uk/#configuring-a-custom-continuous-integration-ci-system">using a CI service</a> such as Jenkins or Travis to run the app test/deploy pipeline</p>
+            </div>
+
+
+    <h2 class="task-list-section"><span class="task-list-section-number">4.</span> Start preparing for going live</h2>
+    <div class="task-list-items">
     <p>
-      <ul>
-        <li>Request accounts for <a href="https://docs.cloud.service.gov.uk/#managing-users">additional team members with the appropriate roles</a></li>
-        <li>Start <a href="https://docs.cloud.service.gov.uk/#configuring-a-custom-continuous-integration-ci-system">using a CI service</a> such as Jenkins or Travis to run the app test/deploy pipeline</li>
-        <li>Continue to develop your code during trial period</li>
-      </ul>
-    </p>
-    <h2>3. By the end of the trial period</h2>
-    <p>
-      <ul>
+      <ul class="list list-bullet">
         <li>Sign Memorandum of Understanding (MOU)</li>
         <li>Move onto the appropriate paid tier given the needs of your service</li>
         <li>Work with Finance colleagues to set up billing arrangements</li>
         <li>Engage with your Information Security/Assurance colleagues to begin the process of accreditation; we can provide the PaaS documentation if they want to review it</li>
       </ul>
     </p>
-    <h2>4. Build towards private beta</h2>
+    </div>
+    <h2 class="task-list-section"><span class="task-list-section-number">5.</span> Build towards private beta</h2>
     <p>
-      <ul>
+    <div class="task-list-items">
+      <ul class="list list-bullet">
         <li><a href="https://docs.cloud.service.gov.uk/#organisations-spaces-amp-targets">Set up ‘spaces’</a> for each of your service’s environments - integration, staging, production - and link them to your CI service</li>
         <li>Configure each environment with the proper backing services; these are often small and open in integration, but high-availability and encrypted in production</li>
         <li>Turn on <a href="https://docs.cloud.service.gov.uk/#scaling">extra instances</a> of key apps in production to get high availability</li>
@@ -76,9 +83,11 @@ title: Onboarding to GOV.UK PaaS
         <li>Procure a monitoring and alerting solution<a href="#asterisk">*</a> and add key metrics; these will be specific to your application and can’t be provided by the platform automatically</li>
       </ul>
     </p>
-    <h2>5. Enter private beta</h2>
+    </div>
+    <h2 class="task-list-section"><span class="task-list-section-number">6.</span> Enter private beta</h2>
     <p>
-      <ul>
+    <div class="task-list-items">
+      <ul class="list list-bullet">
         <li>Work with your SIRO to get authority to operate your service with small amounts of production data</li>
         <li>Request a trial.service.gov.uk URL</li>
         <li>Use the platform marketplace to <a href="https://docs.cloud.service.gov.uk/#using-a-custom-domain">turn on a CDN using your trial domain name</a></li>
@@ -86,42 +95,54 @@ title: Onboarding to GOV.UK PaaS
         <li>Iterate your application support model</li>
       </ul>
     </p>
-    <h2>6. During private beta</h2>
+    </div>
+    <h2 class="task-list-section"><span class="task-list-section-number">7.</span> During private beta</h2>
     <p>
-      <ul>
+    <div class="task-list-items">
+      <ul class="list list-bullet">
         <li>Iterate your service during private beta, based on real user feedback and any incidents</li>
         <li>Your accreditor should want you to arrange penetration testing at various stages throughout development; always give us a week’s notice of this</li>
         <li>Reconfigure or add new backing services as needed</li>
       </ul>
     </p>
-    <h2>7. After your beta service assessment</h2>
+    </div>
+
+    <h2 class="task-list-section"><span class="task-list-section-number">8.</span> After your beta service assessment</h2>
     <p>
-      <ul>
-        <li>change your support plan</li>
-        <li>request a new service.gov.uk URL and re-configure the CDN</li>
+    <div class="task-list-items">
+      <ul class="list list-bullet">
+        <li>Change your support plan</li>
+        <li>Request a new service.gov.uk URL and re-configure the CDN</li>
       </ul>
     </p>
-    <h2>8. Enter the public beta phase with your service</h2>
+    </div>
+
+    <h2 class="task-list-section"><span class="task-list-section-number">9.</span> Enter the public beta phase with your service</h2>
     <p>
-      <ul>
+    <div class="task-list-items">
+      <ul class="list list-bullet">
         <li>Continue to iterate your service based on user feedback and production needs, adding other services (e.g. autoscaling) where needed</li>
         <li>Pass final assessment</li>
       </ul>
     </p>
-    <h2>9. After live assessment</h2>
+    </div>
+
+    <h2 class="task-list-section"><span class="task-list-section-number">10.</span> After live assessment</h2>
     <p>
-      <ul>
+    <div class="task-list-items">
+      <ul class="list list-bullet">
         <li>Keep your dependencies up to date</li>
         <li>Be ready to redeploy if there are vulnerabilities in language runtimes</li>
       </ul>
     </p>
+    </div>
 
 
       <p>
-        <a name="asterisk"></a>* These services may be available through the PaaS platform in the future rather than as separate procurements; please see our roadmap for more information
+        <a name="asterisk"></a>* These services may be available through the PaaS platform in the future rather than as separate procurements; please see our roadmap for more information.
       </p>
 
-      <a name="suppliers"></a><h2 class="heading-large">Suppliers developing on GOV.UK PaaS</h2>
+      <!-- <a name="suppliers"></a><h2 class="heading-large">Suppliers developing on GOV.UK PaaS</h2>
 
       <p>
         Services must always be owned by a civil servant who will take responsibility for the supplier&apos;s usage and spend.
@@ -152,7 +173,7 @@ title: Onboarding to GOV.UK PaaS
       <p>
         Some issues may also only be visible when using production-scale data, and where necessary we may grant
         short-term access to any paid services; however tenants will need to be careful if using production data.
-      </p>
+      </p> -->
 
     </div>
   </div>

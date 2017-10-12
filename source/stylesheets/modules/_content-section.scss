@@ -13,7 +13,7 @@
  */
 
 .content-section {
-  margin-top: $gutter * 2;
+  margin-top: 30px;
 
   &__image {
     max-width: 100%;
@@ -24,12 +24,16 @@
   }
 
   &--with-top-border {
-    padding-top: $gutter;
+    padding-top: 45px;
     border-top: 1px $grey-3 solid;
 
     .content-section__first-heading {
       margin-top: 0;
      }
+
+    .content-section__title {
+    margin-top: 0;
+    }
 
 
   }

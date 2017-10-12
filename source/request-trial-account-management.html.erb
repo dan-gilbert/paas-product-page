@@ -1,0 +1,108 @@
+---
+title: Trial Account
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+    <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://www.gov.uk/service-toolkit#components" itemprop="item">
+                <span itemprop="name">Components</span>
+            </a>
+        </li>
+        <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/" itemprop="item">
+                <span itemprop="name">GOV.UK PaaS</span>
+            </a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="#main" itemprop="item">
+                <span itemprop="name">Request an account</span>
+            </a>
+        </li>
+    </ol>
+</nav>
+
+<div class="container">
+    <div class="grid-row">
+      <div class="column-full filter-fields">
+          <div class="back">
+            <a href="/request-trial.html" class="link-back">Back</a>
+          </div>
+        </div>
+
+        <div class="column-two-thirds">
+            <h1 class="heading-large">Manage user accounts </h1>
+            <p>Organisations are controlled by Org Managers, who administer the account and assign roles and permissions. You’ll need to specify an Org Manager (preferably two or more) in order for us to set up your organisation.</p>
+            
+            <form>
+              <div class="form-group">
+                <fieldset class="inline">
+
+                  <legend>
+                    <h3 class="heading-small">
+                      Will you be an Org Manager?
+                    </h3>
+                  </legend>
+
+                  <div class="multiple-choice">
+                    <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                    <label for="radio-inline-1">Yes</label>
+                  </div>
+                  <div class="multiple-choice">
+                    <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                    <label for="radio-inline-2">No</label>
+                  </div>
+
+                </fieldset>
+              </div>
+            </form>
+
+            <h2 class="heading-medium">Invite other users</h2>
+            <p>Users who aren’t Org Managers won’t be able to administer the account, but will have development rights and can deploy code.</p>
+
+            <div class="form-group">
+              <label class="form-label" for="full-name">
+                Full name</label>
+              <input class="form-control" id="full-name" type="text" name="full-name" style="width: 75%;">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email-address">
+                Email address <span class="form-hint">Can be from a non-government organisation</span>
+              </label>
+              <input class="form-control" id="email-address" type="text" name="email-address" style="width: 75%;">
+            </div>
+
+            <form>
+              <div class="form-group">
+                <fieldset class="inline">
+
+                  <legend>
+                    <h3 class="heading-small">
+                      Will they be an Org Manager?
+                    </h3>
+                  </legend>
+
+                  <div class="multiple-choice">
+                    <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                    <label for="radio-inline-1">Yes</label>
+                  </div>
+                  <div class="multiple-choice">
+                    <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                    <label for="radio-inline-2">No</label>
+                  </div>
+
+                </fieldset>
+              </div>
+            </form>
+            <p><a href="#">Add another user</a></p>
+
+          <div class="form-group">
+              <a href="/request-trial-success.html"><input class="button" type="submit" value="Create new organisation"></a>
+          </div>
+
+        </div>
+
+        <div class="column-one-third"></div>
+    </div>
+</div>
