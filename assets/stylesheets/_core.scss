@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+@import "colours";
+@import "conditionals";
+@import "css3";
+@import "device-pixels";
+@import "font_stack";
+@import "grid_layout";
+@import "helpers";
+@import "measurements";
+@import "typography";
+@import "url-helpers";
+
+
+@import "design-patterns/buttons";
+@import "elements/helpers";
+
+@import "elements/buttons";
+@import "elements/elements-typography";
+@import "elements/forms";
+@import "elements/forms/form-multiple-choice";
+
+@import "elements/layout";
+@import "elements/lists";
+@import "elements/panels";
+@import "elements/tables";
+
+@import "govuk_template/colours";
+@import "govuk_template/accessibility";
+@import "govuk_template/footer";
+// @import "elements/govuk-template-base";
+
+@import "util/printable";
+
+@import "modules/breadcrumbs";
+@import "modules/content-section";
+@import "modules/command";
+@import "modules/full-width-form";
+@import "modules/govuk-logo";
+@import "modules/header";
+@import "modules/hero";
+@import "modules/hero-alternative-action";
+@import "modules/hero-button";
+@import "modules/masthead";
+@import "modules/phase-banner";
+@import "modules/related-items";
+@import "modules/responsive-embed";
+@import "modules/skip-link";
+@import "modules/task-list";
+@import "modules/sub-navigation";
+
+
+html, body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  @include core-19;
+}
+
+
+#main {
+  display: block;
+  margin-bottom: $gutter * 3;
+}
+
+.container {
+  @extend %site-width-container;
+}
+
+a:link {
+  color: $link-colour;
+}
+
+a:visited {
+  color: $link-visited-colour;
+}
+
+a:hover {
+  color: $link-hover-colour;
+}
+
+a:active {
+  color: $link-active-colour;
+}
+
+.column-one-whole {
+  @include grid-column(1/1);
+}
+
+fieldset {
+    display: block;
+padding-left: 0px;
+    border-width: 0px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+  }
+
+
+.pricing-support th {
+    font-size: 16px;
+  }
+.pricing-support td {
+    font-size: 16px;
+  }
+
+.pricing-example {
+    margin-top: 30px;
+    border: 5px solid $panel-colour;
+    padding-left: 15px;
+    padding-bottom: 30px;
+    padding-right: 15px;
+  }
+
+.pricing-example th {
+    font-size: 16px;
+  }
+.pricing-example td {
+    font-size: 16px;
+  }
+

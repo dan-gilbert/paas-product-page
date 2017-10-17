@@ -1,0 +1,41 @@
+<% content_for :head do %>
+	<title>Thanks - <%= settings.title %></title>
+<% end %>
+
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+	<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="https://www.gov.uk/service-toolkit#components" itemprop="item">
+				<span itemprop="name">Components</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="/" itemprop="item">
+				<span itemprop="name">GOV.UK PaaS</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="#main" itemprop="item">
+				<span itemprop="name">Support</span>
+			</a>
+		</li>
+	</ol>
+</nav>
+
+<div class="container">
+	<div class="grid-row">
+
+		<div class="column-two-thirds">
+			<h1 class="heading-xlarge">Thanks!</h1>
+			<p class="lede">We’ll contact you in the next working day.</p>
+			<% if @ticket %>
+				<p class="lede">If you need to contact us regarding this enquiry quote reference: <%= @ticket.id %></p>
+			<% end %>
+			<br />
+			<br />
+			<p><a href="/getting-started">See the next steps to getting started</a></p>
+		</div>
+
+		<div class="column-one-third"></div>
+	</div>
+</div>

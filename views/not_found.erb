@@ -1,0 +1,50 @@
+<% content_for :head do %>
+	<title>Page not found - <%= settings.title %></title>
+<% end %>
+
+
+<div class="masthead">
+	<nav class="breadcrumbs breadcrumbs--inverse" aria-label="Breadcrumbs">
+		<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="https://www.gov.uk/service-toolkit#components" itemprop="item"><span itemprop="name">Components</span></a>
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="/" itemprop="item"><span itemprop="name">GOV.UK PaaS</span></a>
+			</li>
+			<li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="#main" itemprop="item"><span itemprop="name">Not found</span></a>
+			</li>
+		</ol>
+	</nav>
+
+	<div class="hero hero--breaded">
+		<div class="hero__content">
+			<div class="hero__body">
+				<h1 class="hero__title">404: Page not found</h1>
+				<div class="hero__inline-image">
+				</div>
+				<p class="hero__description">
+					Sorry the page you were looking for could not be found.
+				</p>
+			</div>
+			<div class="hero__aside-image">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="grid-row">
+
+
+
+		<div class="column-two-thirds">
+			<h1 class="heading-xlarge">Were you looking for...</h1>
+			<ul class="list list-bullet">
+				<li><a href="/">The Gov.UK PaaS home page</a></li>
+				<li><a href="/getting-started">Getting Started</a></li>
+				<li><a href="/features">Features</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

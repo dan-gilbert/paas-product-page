@@ -1,0 +1,14 @@
+<div class="form-group <%= 'form-group-error' if error %>">
+	<label class="form-label-bold" for="<%= name %>">
+		<%= label %>
+		<span class="form-hint">
+			<%= hint %>
+		</span>
+		<% if error %>
+			<span class="error-message">
+				<%= error %>
+			</span>
+		<% end %>
+	</Label>
+	<textarea class="form-control <%= 'form-control-error' if error %>" name="<%= name %>" id="textarea" rows="10"><%= value %></textarea>
+</div>

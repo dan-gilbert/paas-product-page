@@ -1,0 +1,77 @@
+<% content_for :head do %>
+	<title>Contact - <%= settings.title %></title>
+<% end %>
+
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+	<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="https://www.gov.uk/service-toolkit#components" itemprop="item">
+				<span itemprop="name">Components</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="/" itemprop="item">
+				<span itemprop="name">GOV.UK PaaS</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="#main" itemprop="item">
+				<span itemprop="name">Support</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="#main" itemprop="item">
+				<span itemprop="name">Contact us</span>
+			</a>
+		</li>
+	</ol>
+</nav>
+
+<div class="container">
+	<div class="grid-row">
+
+		<div class="column-two-thirds">
+			<h1 class="heading-large">Contact us</h1>
+
+			<div class="form-group">
+				<label class="form-label" for="full-name">
+					Your full name
+				</label>
+				<input class="form-control" id="full-name" type="text" name="full-name" style="width: 100%;">
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="email-address">
+					Your email address
+				</label>
+				<input class="form-control" id="email-address" type="text" name="email-address" style="width: 100%;">
+			</div>
+
+			<div class="form-group">
+				<label class="form-label" for="dep-name">
+					Your department or agency
+				</label>
+				<input class="form-control" id="dep-name" type="text" name="dep-name" style="width: 100%;">
+			</div>
+
+			<div class="form-group">
+				<label class="form-label" for="service-name">
+					The name of the service or team that you work on 
+				</label>
+				<input class="form-control" id="service-name" type="text" name="service-name" style="width: 100%;">
+			</div>
+
+			<div class="form-group">
+				<label class="form-label" for="your-message">
+					Your message
+				</label>
+				<textarea class="form-control" name="textarea" id="textarea" style="width: 100%;" rows="5"></textarea>
+			</div>
+
+			<div class="form-group">
+				<a href="/request-trial-success-2"><input class="button" type="submit" value="Submit"></a>
+			</div>
+
+			<div class="column-one-third"></div>
+		</div>
+	</div>
+</div>

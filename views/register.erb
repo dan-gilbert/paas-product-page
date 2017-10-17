@@ -1,0 +1,8 @@
+<form action="/register" method="POST">
+	<%= erb :"partials/_input", :locals => {name: "person_name", label: "Name", hint: "Your Full Name", value: @ticket.person_name, error: errors_for(@ticket, :person_name)} %>
+	<%= erb :"partials/_input", :locals => {name: "person_email", label: "Email", hint: "Your Email Address", value: @ticket.person_email, error: errors_for(@ticket, :person_email)} %>
+	<input type="hidden" name="ga_tracking_id" value="<%= params['ga_tracking_id'] || '' %>" />
+	<input type="hidden" name="ga_client_id" value="<%= params['ga_client_id'] || '' %>" />
+	<input type="hidden" name="ga_hostname" value="<%= params['ga_hostname'] || '' %>" />
+	<input class="button" type="submit" value="Signup">
+</form>

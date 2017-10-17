@@ -6,6 +6,8 @@
 
 # Ignore bundler config
 /.bundle
+vendor
+node_modules
 
 # Ignore the build directory
 /build

@@ -1,0 +1,184 @@
+<% content_for :head do %>
+	<title><%= settings.title %></title>
+<% end %>
+
+<div class="masthead">
+	<nav class="breadcrumbs breadcrumbs--inverse" aria-label="Breadcrumbs">
+		<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="https://www.gov.uk/service-toolkit#components" itemprop="item"><span itemprop="name">Components</span></a>
+			</li>
+			<li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="#main" itemprop="item"><span itemprop="name">GOV.UK PaaS</span></a>
+			</li>
+		</ol>
+	</nav>
+
+	<div class="hero hero--breaded">
+		<div class="hero__content">
+			<div class="hero__body">
+				<h1 class="hero__title">Modern web hosting for government services</h1>
+				<div class="hero__inline-image">
+					<img src="/images/paas-top-image.png" alt="" role="presentation">
+				</div>
+				<p class="hero__description">
+					Focus&nbsp;on building your service, not managing infrastructure.
+				</p>
+				<a href="/getting-started" role="button" class="hero-button">
+					See how to get started
+				</a>
+			</div>
+			<div class="hero__aside-image">
+				<img src="/images/paas-top-image.png" alt="" role="presentation">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+
+	<section class="content-section">
+		<div class="grid-row">
+			<div class="column-half">
+				<h2 class="heading-medium content-section__first-heading">
+					Deploy applications without
+					infrastructure&nbsp;specialists
+				</h2>
+				<p class="content-section__body">
+					You can get something up on the Internet in minutes,
+					without depending on a webops team.
+				</p>
+				<p class="content-section__body">
+					The GOV.UK PaaS team manages the underlying platform,
+					so you can:
+				</p>
+				<ul class="list list-bullet">
+					<li>
+						make the best use of your developers’ time
+					</li>
+					<li>
+						focus your budget on your applications
+					</li>
+				</ul>
+			</div>
+			<div class="column-half">
+				<img width="100%" src="/images/product/1-o.svg"/>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section content-section--with-top-border">
+		<div class="grid-row">
+			<div class="column-two-thirds">
+				<h2 class="content-section__title heading-medium">
+					Meet the demands of your users
+				</h2>
+				<p class="content-section__body">
+					As your service grows, GOV.UK PaaS lets you instantly:
+				</p>
+				<ul class="list list-bullet">
+					<li>
+						spin up new apps
+					</li>
+					<li>
+						scale existing ones to meet demand
+					</li>
+					<li>
+						add backing services (like PostgreSQL and MySQL databases)
+					</li>
+				</ul>
+				<p class="content-section__body">
+					<a href="/features">See the full list of current and planned features</a>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section content-section--with-top-border">
+		<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<h2 class="content-section__title heading-medium">
+					Resilient and secure
+				</h2>
+				<p class="content-section__body">
+					GOV.UK PaaS is designed to meet the needs of government teams working on public-facing services:
+				</p>
+				<ul class="list list-bullet">
+					<li>
+						It provides 99.99% uptime (based on the last six months’ <a href="https://status.cloud.service.gov.uk/">performance</a>)
+					</li>
+					<li>
+						It offers 24-hour platform-level support
+					</li>
+					<li>
+						It’s possible to test an application on the free plan before moving to one of the paid plans
+					</li>
+					<li>
+						The technology runs on an IA-accredited infrastructure, so times for app accreditation are generally faster
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section content-section--with-top-border">
+		<div class="grid-row">
+			<div class="column-half">
+				<h2 class="content-section__title heading-medium">
+					Supported 24 hours a day, 7 days a week<br/>
+					by the team that builds it
+				</h2>
+				<p>
+					GOV.UK PaaS is built and managed by a full-time team of
+					developers, webops engineers, product managers and user
+					researchers at GDS.
+				</p>
+				<p>
+					The team provides 24/7 <a href="/support">support</a>
+					for any platform-related issue.
+				</p>
+				<p>
+					If your team is experiencing any issue using the platform we
+					can provide assistance during office hours.
+				</p>
+			</div>
+			<div class="column-half">
+				<img src="/images/paas-team.png" alt="Members of the GOV.UK PaaS team holding a meeting" class="content-section__image">
+			</div>
+		</div>
+	</section>
+
+	<section class="content-section content-section--with-top-border">
+		<div class="grid-row">
+			<div class="column-two-thirds">
+				<h2 class="content-section__title heading-medium">
+					Trusted by teams across government
+				</h2>
+				<div class="grid-row">
+					<div class="column-one-third">
+						<img src="/images/logos/co.png" alt="Cabinet Office" height="42">
+					</div>
+					<div class="column-one-third">
+						<img src="/images/logos/moj.png" alt="Ministry of Justice" height="60">
+					</div>
+					<div class="column-one-third">
+						<img src="/images/logos/dit.png" alt="Department for Internation Trade" height="60">
+					</div>
+				</div>
+				<br>
+				<p>
+					Several live services are currently using GOV.UK PaaS,
+					including Trade Tariff, GOV.UK Notify, Digital Marketplace,
+					DiT Horizon, BEIS Primary Authority Register and Her Majesty’s
+					Prison and Probation Service.
+				</p>
+				<p>
+					If your department has already signed a memorandum of
+					understanding with GOV.UK PaaS, you could start using it
+					straight away.
+				</p>
+			</div>
+		</div>
+	</section>
+</div>

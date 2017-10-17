@@ -1,0 +1,20 @@
+{
+  "name": "paas-product-page",
+  "version": "1.0.0",
+  "description": "product pages for Gov.UK PaaS",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "govuk-elements-sass": "^3.1.1",
+    "govuk_template_mustache": "^0.23.0",
+    "node-sass": "^4.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphagov/paas-product-page.git"
+  },
+  "author": "Gov.UK",
+  "license": "ISC",
+  "homepage": "https://github.com/alphagov/paas-product-page"
+}
