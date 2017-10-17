@@ -85,6 +85,7 @@ GEM
     sprockets-helpers (1.2.1)
       sprockets (>= 2.2)
     staccato (0.5.1)
+    sysrandom (1.0.5)
     tilt (2.0.8)
     trollop (2.1.2)
     unf (0.1.4)
@@ -117,6 +118,7 @@ DEPENDENCIES
   sprockets (~> 3.7)
   sprockets-helpers (~> 1.2)
   staccato (~> 0.5.1)
+  sysrandom (~> 1.0)
   webmock (~> 3.0)
   yamllint (~> 0.0.9)
 

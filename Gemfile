@@ -24,3 +24,6 @@ gem "rawler", "~> 0.1.8"
 
 # Added at 2017-10-17 09:37:53 +0100 by chrisfarmiloe:
 gem "capybara", "~> 2.15"
+
+# Added at 2017-10-17 13:23:09 +0100 by chrisfarmiloe:
+gem "sysrandom", "~> 1.0"
