@@ -1,0 +1,6 @@
+dist: trusty
+rvm:
+  - 2.4.1
+
+script:
+  - make test

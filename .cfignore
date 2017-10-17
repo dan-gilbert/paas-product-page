@@ -1,0 +1,7 @@
+.git
+.gitignore
+.bundle
+manifest.yml
+vendor
+spec
+source
