@@ -1,0 +1,232 @@
+<% content_for :head do %>
+	<title>Request Account - <%= settings.title %></title>
+<% end %>
+
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+	<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="https://www.gov.uk/service-toolkit#components" itemprop="item">
+				<span itemprop="name">Components</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="/" itemprop="item">
+				<span itemprop="name">GOV.UK PaaS</span>
+			</a>
+		</li>
+		<li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<a href="#main" itemprop="item">
+				<span itemprop="name">Request an account</span>
+			</a>
+		</li>
+	</ol>
+</nav>
+
+<% if params[:step] == 'create-organisation' %>
+	<div class="container">
+		<div class="grid-row">
+			<div class="column-full filter-fields">
+				<div class="back">
+					<a href="/request-account" class="link-back">Back</a>
+				</div>
+			</div>
+
+			<div class="column-two-thirds">
+				<form action="/request-account?step=create-users" method="post">
+					<h1 class="heading-large">Create a new organisation</h1>
+					<div class="form-group">
+						<label class="form-label" for="person_name">Your full name</label>
+						<input class="form-control" id="full-name" type="text" name="person_name" style="width: 100%;" value="<%= account[:person_name] || '' %>">
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="person_email">
+							Your email address <span class="form-hint">Must be from a government organisation</span>
+						</label>
+						<input class="form-control" id="email-address" type="text" name="person_email" style="width: 100%;" value="<%= account[:person_email] || ''%>">
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="department_name">
+							The name of your government department or agency
+						</label>
+						<input class="form-control" id="dep-name" type="text" name="department_name" style="width: 100%;" value="<%= account[:department_name] || ''%>">
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="service_name">
+							The name of the service or team that you work on <span class="form-hint">
+								If you’re not working on a service please tell us the name of your team or what you want to use your trial account for</span>
+						</label>
+						<input class="form-control" id="service-name" type="text" name="service_name" style="width: 100%;" value="<%= account[:service_name] || '' %>">
+					</div>
+					<div class="form-group">
+						<input class="button" type="submit" value="Continue">
+					</div>
+				</form>
+			</div>
+
+			<div class="column-one-third"></div>
+		</div>
+	</div>
+<% elsif params[:step] == 'create-users' %>
+	<div class="container">
+		<div class="grid-row">
+			<div class="column-full filter-fields">
+				<div class="back">
+					<a href="/request-account?step=create-organisation" class="link-back">Back</a>
+				</div>
+			</div>
+
+			<div class="column-two-thirds">
+				<form action="/request-account?step=invite&invite=0" method="post">
+					<h1 class="heading-large">Manage user accounts </h1>
+					<p>Organisations are controlled by Org Managers, who administer the account and assign roles and permissions. You’ll need to specify an Org Manager (preferably two or more) in order for us to set up your organisation.</p>
+					<div class="form-group">
+						<fieldset class="inline">
+							<legend>
+								<h3 class="heading-small"> Will you be an Org Manager?  </h3>
+							</legend>
+							<div class="multiple-choice">
+								<input id="radio-inline-1" type="radio" name="person_is_manager" value="true" <%= 'checked="checked"' if account[:person_is_manager] == 'true' %>>
+								<label for="radio-inline-1">Yes</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="radio-inline-2" type="radio" name="person_is_manager" value="false" <%= 'checked="checked"' if account[:person_is_manager] != 'true' %>>
+								<label for="radio-inline-2">No</label>
+							</div>
+						</fieldset>
+					</div>
+					<h2 class="heading-medium">Invite another user</h2>
+					<p>Users who aren’t Org Managers won’t be able to administer the account, but will have development rights and can deploy code.</p>
+					<div class="form-group">
+						<fieldset class="inline">
+							<legend>
+								<h3 class="heading-small"> Would you like to invite another user now?  </h3>
+							</legend>
+							<div class="multiple-choice">
+								<input id="radio-inline-1" type="radio" name="continue" value="true" <%= 'checked="checked"' if has_next_invite? %>>
+								<label for="radio-inline-1">Yes</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="radio-inline-2" type="radio" name="continue" value="false" <%= 'checked="checked"' if !has_next_invite? %>>
+								<label for="radio-inline-2">No</label>
+							</div>
+						</fieldset>
+					</div>
+					<div class="form-group">
+						<input class="button" type="submit" value="Continue">
+					</div>
+				</form>
+			</div>
+
+			<div class="column-one-third"></div>
+		</div>
+	</div>
+
+<% elsif params[:step] == 'invite' %>
+	<div class="container">
+		<div class="grid-row">
+			<div class="column-full filter-fields">
+				<div class="back">
+					<a href="/request-account?step=create-users" class="link-back">Back</a>
+				</div>
+			</div>
+			<div class="column-two-thirds">
+				<form action="/request-account?step=invite&invite=<%= invite[:idx] + 1 %>" method="post">
+					<h1 class="heading-large">Invite User <%= invite[:idx] %></h1>
+					<p>Organisations are controlled by Org Managers, who administer the account and assign roles and permissions. You’ll need to specify an Org Manager (preferably two or more) in order for us to set up your organisation.</p>
+					<div class="form-group">
+						<label class="form-label" for="invite[<%= invite[:idx] %>]person_name">
+							Full name</label>
+						<input class="form-control" id="full-name" type="text" name="invites[<%= invite[:idx] %>]person_name" style="width: 75%;" value="<%= invite[:person_name] || '' %>">
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="invites[<%= invite[:idx] %>]person_email">
+							Email address <span class="form-hint">Can be from a non-government organisation</span>
+						</label>
+						<input class="form-control" id="email-address" type="text" name="invites[<%= invite[:idx] %>]person_email" style="width: 75%;" value="<%= invite[:person_email] %>">
+					</div>
+					<div class="form-group">
+						<fieldset class="inline">
+							<legend>
+								<h3 class="heading-small">
+									Will they be an Org Manager?
+								</h3>
+							</legend>
+							<div class="multiple-choice">
+								<input id="radio-inline-1" type="radio" name="invites[<%= invite[:idx] %>]person_is_manager" value="Yes" <%= 'checked="checked"' if invite[:person_is_manager] == 'true' %>>
+								<label for="radio-inline-1">Yes</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="radio-inline-2" type="radio" name="invites[<%= invite[:idx] %>]person_is_manager" value="No" <%= 'checked="checked"' if invite[:person_is_manager] != 'true' %>>
+								<label for="radio-inline-2">No</label>
+							</div>
+						</fieldset>
+					</div>
+					<div class="form-group">
+						<fieldset class="inline">
+							<legend>
+								<h3 class="heading-small"> Would you like to invite another user now?  </h3>
+							</legend>
+							<div class="multiple-choice">
+								<input id="radio-inline-1" type="radio" name="continue" value="true" <%= 'checked="checked"' if has_next_invite? %>>
+								<label for="radio-inline-1">Yes</label>
+							</div>
+							<div class="multiple-choice">
+								<input id="radio-inline-2" type="radio" name="continue" value="false" <%= 'checked="checked"' if !has_next_invite? %>>
+								<label for="radio-inline-2">No</label>
+							</div>
+						</fieldset>
+					</div>
+					<div class="form-group">
+						<input class="button" type="submit" value="Continue">
+					</div>
+				</form>
+			</div>
+			<div class="column-one-third"></div>
+		</div>
+	</div>
+<% elsif params[:step] == 'join-organisation' %>
+	<div class="container">
+		<div class="grid-row">
+			<div class="column-two-thirds">
+				<h1 class="heading-large">Request to join an existing organisation</h1>
+				<p>If your team is already using GOV.UK PaaS and you would like a user account, ask an Org Manager to contact us and make a request at:<br><a href="mailto:gov-uk-paas-support@digital.cabinet-office.gov.uk">gov-uk-paas-support@digital.cabinet-office.gov.uk</a></p>
+				<p>Org Managers administer the account and assign roles and permissions.</p>
+				<p>Users with non-government email addresses can be added to an account at the request of an Org Manager.</p>
+				<p> <a href="/contact-us">Need more help?</a> </p>
+				<div class="column-one-third"></div>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div class="container">
+		<div class="grid-row">
+			<div class="column-two-thirds">
+				<h1 class="heading-large">Request an account</h1>
+				<form action="/request-account" class="request-trial-form" method="get">
+					<div class="form-group">
+						<fieldset>
+							<legend>
+								<h2 class="heading-medium">You’ll need to create or join an organisation</h2>
+								<p>Service teams on GOV.UK PaaS own and use a development account called ‘organisation’. An organisation can have multiple users, who access GOV.UK PaaS with user accounts. 
+								</p>
+							</legend>
+							<div class="multiple-choice">
+								<input id="request-trial" type="radio" name="step" value="create-organisation" checked="checked">
+								<label for="request-trial">Create a new organisation</label>
+
+							</div>
+							<div class="multiple-choice">
+								<input id="request-trial-2" type="radio" name="step" value="join-organisation">
+								<label for="request-trial-2">Request to join an existing organisation</label>
+							</div>
+						</fieldset>
+					</div>
+					<div class="form-group">
+						<input class="button" type="submit" value="Continue">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<% end %>
+

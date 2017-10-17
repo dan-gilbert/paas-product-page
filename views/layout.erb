@@ -34,7 +34,7 @@
 <body>
 	<a href="#main" class="skip-link">Skip to main content</a>
 
-	<header class="header<% if request.path_info == '/' %> header--without-border<% end %>">
+	<header class="header<% if request.path_info == '/' || not_found? %> header--without-border<% end %>">
 		<div class="header__container">
 			<div class="header__brand">
 				<a href="/">
@@ -58,6 +58,7 @@
 				<ul>
 					<% {
 						'About' => '/',
+						'Get Started' => '/getting-started',
 						'Features' => '/features',
 						'Documentation' => 'https://docs.cloud.service.gov.uk',
 						'Support' => '/support'
