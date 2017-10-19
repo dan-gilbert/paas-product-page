@@ -19,6 +19,7 @@
 @import "elements/elements-typography";
 @import "elements/forms";
 @import "elements/forms/form-multiple-choice";
+@import "elements/forms/form-validation";
 
 @import "elements/layout";
 @import "elements/lists";
@@ -51,71 +52,89 @@
 
 
 html, body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  @include core-19;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	@include core-19;
 }
 
 
 #main {
-  display: block;
-  margin-bottom: $gutter * 3;
+	display: block;
+	margin-bottom: $gutter * 3;
 }
 
 .container {
-  @extend %site-width-container;
+	@extend %site-width-container;
 }
 
 a:link {
-  color: $link-colour;
+	color: $link-colour;
 }
 
 a:visited {
-  color: $link-visited-colour;
+	color: $link-visited-colour;
 }
 
 a:hover {
-  color: $link-hover-colour;
+	color: $link-hover-colour;
 }
 
 a:active {
-  color: $link-active-colour;
+	color: $link-active-colour;
 }
 
 .column-one-whole {
-  @include grid-column(1/1);
+	@include grid-column(1/1);
 }
 
 fieldset {
-    display: block;
-padding-left: 0px;
-    border-width: 0px;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-  }
+	display: block;
+	padding-left: 0px;
+	border-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
 
 
 .pricing-support th {
-    font-size: 16px;
-  }
+	font-size: 16px;
+}
 .pricing-support td {
-    font-size: 16px;
-  }
+	font-size: 16px;
+}
 
 .pricing-example {
-    margin-top: 30px;
-    border: 5px solid $panel-colour;
-    padding-left: 15px;
-    padding-bottom: 30px;
-    padding-right: 15px;
-  }
+	margin-top: 30px;
+	border: 5px solid $panel-colour;
+	padding-left: 15px;
+	padding-bottom: 30px;
+	padding-right: 15px;
+}
 
 .pricing-example th {
-    font-size: 16px;
-  }
+	font-size: 16px;
+}
 .pricing-example td {
-    font-size: 16px;
-  }
+	font-size: 16px;
+}
+
+.form-group .error-message {
+	display: none;
+}
+
+.form-group-error {
+
+	.error-message {
+		display: block;
+	}
+	.form-control {
+		@extend .form-control-error;
+	}
+
+	table .form-control {
+		border-color: #ccc;
+	}
+}
 

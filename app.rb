@@ -5,6 +5,7 @@ require 'sinatra/multi_route'
 require 'staccato'
 require 'sprockets'
 require 'sprockets-helpers'
+require 'json'
 
 require './models/deskpro'
 
@@ -35,59 +36,10 @@ class App < Sinatra::Base
 	helpers Sprockets::Helpers
 
 	after do
-		headers 'X-Robots-Tag' => 'noindex, nofollow' #FIXME
 	end
 
 	get '/?' do
 		erb :index
-	end
-
-	get '/register' do
-		@ticket = Deskpro::Ticket.new
-		erb :register
-	end
-
-	post '/register' do
-		@ticket = Deskpro::Ticket.new({
-			subject: "#{Date.today.to_s} New user registration",
-			message: "#{params['person_name']} would like to request an account",
-			person_email: params['person_email'],
-			person_name: params['person_name'],
-			label: ['paas'],
-		})
-		@ticket.agent_team_id = ENV['DESKPRO_TEAM_ID'].to_i if ENV['DESKPRO_TEAM_ID']
-		if not @ticket.valid?
-			status 400
-			erb :register
-		else
-			deskpro.post @ticket
-			track_event 'register'
-			erb :thanks
-		end
-	end
-
-	get '/support' do
-		@ticket = Deskpro::Ticket.new
-		erb :support
-	end
-
-	post '/support' do
-		@ticket = Deskpro::Ticket.new({
-			subject: "#{Date.today.to_s} Support Request From Website",
-			person_email: params['person_email'],
-			person_name: params['person_name'],
-			message: params['message'],
-			label: ['paas'],
-		})
-		@ticket.agent_team_id = ENV['DESKPRO_TEAM_ID'].to_i if ENV['DESKPRO_TEAM_ID']
-		if not @ticket.valid?
-			status 400
-			erb :support
-		else
-			deskpro.post @ticket
-			track_event 'enquire'
-			erb :thanks
-		end
 	end
 
 	get "/assets/*" do
@@ -95,34 +47,88 @@ class App < Sinatra::Base
 		settings.sprockets.call(env)
 	end
 
-	route :get, :post, '/request-account' do
-		puts "params: #{params}"
-		set_from_param(:person_name)
-		set_from_param(:person_email)
-		set_from_param(:person_is_manager)
-		set_from_param(:department_name)
-		set_from_param(:service_name)
-		(params[:invites] || {}).each do |k,v|
-			invs = session[:invites] ||= {}
-			invs ||= {}
-			invs[k] = v
-			invs[k][:idx] = k.to_i
+	post '/signup' do
+		@form = {
+			:person_email => params[:person_email] || '',
+			:person_name => params[:person_name] || '',
+			:person_is_manager => params[:person_is_manager] == 'true',
+			:department_name => params[:department_name] || '',
+			:service_name => params[:service_name],
+			:invite_users => params[:invite_users] == 'true',
+			:invites => [{},{},{}].map.with_index do |invite, idx|
+				invite = (params[:invites] || {})[idx.to_s] || {}
+				{
+					:person_name => invite[:person_name] || '',
+					:person_email => invite[:person_email] || '',
+					:person_is_manager => invite[:person_is_manager] == 'true',
+				}
+			end
+		}
+		@errors = {}
+		@form.each do |k, v|
+			err = validate(k, v)
+			@errors[k] = err if err.is_a? String
 		end
-		puts "session: #{session.to_h}"
-		if params[:continue] == 'false'
-			erb :thanks
+		if @errors.size > 0
+			status 400
+			return erb :signup
+		end
+		@ticket = Deskpro::Ticket.new({
+			subject: "#{Date.today.to_s} Registration Request",
+			message: %{
+New registration request from website:
+
+#{JSON.pretty_generate(@form)}
+			},
+			person_email: @form[:person_email],
+			person_name: @form[:person_name],
+			label: ['paas'],
+		})
+		@ticket.agent_team_id = ENV['DESKPRO_TEAM_ID'].to_i if ENV['DESKPRO_TEAM_ID']
+		if not @ticket.valid?
+			status 400
+			erb :signup
 		else
-			erb :'request-account'
+			begin
+				deskpro.post @ticket
+				track_event 'register'
+				erb :thanks
+			rescue => ex
+				status 500
+				@errors[:fatal] = ex.to_s
+				erb :signup
+			end
 		end
 	end
 
+	get '/signup' do
+		@form = {
+			:person_email => '',
+			:person_name => '',
+			:person_is_manager => true,
+			:department_name => '',
+			:service_name => '',
+			:invite_users => false,
+			:invites => [
+				{:person_name => '', :person_email => '', :person_is_manager => false},
+				{:person_name => '', :person_email => '', :person_is_manager => false},
+				{:person_name => '', :person_email => '', :person_is_manager => false},
+			],
+		}
+		@errors = {}
+		erb :signup
+	end
+
 	get '/*' do
-		viewname = params[:splat].first
-		if File.exist?("views/#{viewname}.erb")
-			erb viewname.to_sym
-		else
-			not_found
+		path = params[:splat].first
+		viewname = path.sub(/\.html$/, '')
+		if !File.exist?("views/#{viewname}.erb")
+			return not_found
 		end
+		if path.match?(/\.html/)
+			return redirect "/#{viewname}", 301
+		end
+		erb viewname.to_sym
 	end
 
 	not_found do
@@ -135,6 +141,31 @@ class App < Sinatra::Base
 	end
 
 	helpers do
+
+		def validate(k,v)
+			case k
+			when :person_name
+				if v.nil? || v.empty?
+					'Your name must not be blank'
+				end
+			when :department_name
+				if v.nil? || v.empty?
+					'Department name must not be blank'
+				end
+			when :service_name
+				if v.nil? || v.empty?
+					'Service name must not be blank'
+				end
+			when :person_email
+				if v.nil? || v.empty?
+					'Email address must not be blank'
+				elsif !v.match?(/.+@.+/)
+					'Must enter a valid email address'
+				elsif !v.match?(/gov.uk$/)
+					'We can only accept requests from govenment departments at this time'
+				end
+			end
+		end
 
 		# the current session account details
 		def account
