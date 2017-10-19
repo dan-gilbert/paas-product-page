@@ -44,8 +44,7 @@
 			<form action="/signup" method="post">
 
 				<div class="step step--join-organisation">
-					<h2 class="heading-medium">Request to join an existing organisation</h2>
-					<p>If your team is already using GOV.UK PaaS and you would like a user account, ask an Org Manager to contact us and make a request at:<br><a href="mailto:gov-uk-paas-support@digital.cabinet-office.gov.uk">gov-uk-paas-support@digital.cabinet-office.gov.uk</a></p>
+					<p>If your team is already using GOV.UK PaaS and you would like a user account, ask your Org Manager to contact us and make a request at:<br><a href="mailto:gov-uk-paas-support@digital.cabinet-office.gov.uk">gov-uk-paas-support@digital.cabinet-office.gov.uk</a></p>
 					<p>Org Managers administer the account and assign roles and permissions.</p>
 					<p>Users with non-government email addresses can be added to an account at the request of an Org Manager.</p>
 					<div class="form-group">
@@ -54,18 +53,21 @@
 				</div>
 
 				<div class="step step--start step--all">
-					<h2 class="heading-medium">Create a new organisation</h2>
+					<p>Service teams on GOV.UK PaaS own and use a development account called an <em>organisation</em>.</p>
 					<div class="form-group">
 						<fieldset>
-							<legend>Service teams on GOV.UK PaaS own and use a development account called ‘organisation’. An organisation can have multiple users, who access GOV.UK PaaS with user accounts.</legend>
+							<legend>
+								<span class="form-label-bold">Do you want to create an Organisation?</span>
+								<span class="form-hint">An organisation typically represents the real-world organisation, department or team you work for.</span>
+							</legend>
 							<div class="multiple-choice">
 								<input id="choose-create" type="radio" name="step" value="step--about-you" checked="checked">
-								<label for="choose-create">Create a new organisation</label>
+								<label for="choose-create">Yes, I'm new to PaaS and want to create an organisation</label>
 
 							</div>
 							<div class="multiple-choice">
 								<input id="choose-join" type="radio" name="step" value="step--join-organisation">
-								<label for="choose-join">Request to join an existing organisation</label>
+								<label for="choose-join">No, I'd like to join an existing organisation</label>
 							</div>
 						</fieldset>
 					</div>
@@ -99,8 +101,7 @@
 				</div>
 
 				<div class="step step--create-organisation step--all">
-					<h2 class="heading-medium">Create a new organisation</h2>
-					<p>Service teams on GOV.UK PaaS own and use an account called an <em>Organisation</em>. An organisation can have multiple users, who access GOV.UK PaaS with user accounts.</p>
+					<h2 class="heading-medium">Your organisation</h2>
 					<div class="form-group <%= 'form-group-error' if @errors.has_key? :department_name %> form-group--department_name">
 						<label class="form-label" for="department_name">
 							<span class="form-label-bold">Department or agency name</span>
@@ -126,11 +127,11 @@
 							</legend>
 							<div class="multiple-choice">
 								<input id="person-is-manager-yes" class="person-is-manager" type="radio" name="person_is_manager" value="true" <%= 'checked="checked"' if @form[:person_is_manager] === true or @form[:person_is_manager].nil? %>>
-								<label for="person-is-manager-yes">Yes, I will be the Org Manager</label>
+								<label for="person-is-manager-yes">Yes, I will be a manager for this organisation</label>
 							</div>
 							<div class="multiple-choice">
 								<input id="person-is-manager-no" class="person-is-manager" type="radio" name="person_is_manager" value="false" <%= 'checked="checked"' if @form[:person_is_manager] === false %>>
-								<label for="person-is-manager-no">No, I will nominate someone to be the Org Manager</label>
+								<label for="person-is-manager-no">No, I will nominate someone else to be a manager</label>
 							</div>
 							<div id="person-is-manager-no--note" class="panel panel-border-narrow" style="display:none; margin-top: 10px;">
 								<p>You will need to specify at least one <em>Org Manager</em> in order for us to set up your Organisation.</p>
