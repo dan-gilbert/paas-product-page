@@ -35,9 +35,6 @@ class App < Sinatra::Base
 	helpers Sinatra::ContentFor
 	helpers Sprockets::Helpers
 
-	after do
-	end
-
 	get '/?' do
 		erb :index
 	end
@@ -45,6 +42,41 @@ class App < Sinatra::Base
 	get "/assets/*" do
 		env["PATH_INFO"].sub!("/assets", "")
 		settings.sprockets.call(env)
+	end
+
+	get '/contact-us' do
+		@errors = {}
+		@ticket = Deskpro::Ticket.new
+		erb :'contact-us'
+	end
+
+	post '/contact-us' do
+		@errors = {}
+		message = "department: #{params[:department_name]}\n"
+		message << "service: #{params[:service_name]}\n"
+		message << params[:message]
+		@ticket = Deskpro::Ticket.new({
+			subject: "#{Date.today.to_s} Support Request From Website",
+			person_email: params[:person_email],
+			person_name: params[:person_name],
+			message: message,
+			label: ['paas'],
+		})
+		@ticket.agent_team_id = ENV['DESKPRO_TEAM_ID'].to_i if ENV['DESKPRO_TEAM_ID']
+		if not @ticket.valid?
+			status 400
+			erb :'contact-us'
+		else
+			begin
+				deskpro.post @ticket
+				track_event 'enquire'
+				erb :thanks
+			rescue => ex
+				status 500
+				@errors[:fatal] = ex.to_s
+				erb :'contact-us'
+			end
+		end
 	end
 
 	post '/signup' do

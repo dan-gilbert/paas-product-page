@@ -29,49 +29,29 @@
 
 <div class="container">
 	<div class="grid-row">
-
 		<div class="column-two-thirds">
 			<h1 class="heading-large">Contact us</h1>
-
-			<div class="form-group">
-				<label class="form-label" for="full-name">
-					Your full name
-				</label>
-				<input class="form-control" id="full-name" type="text" name="full-name" style="width: 100%;">
-			</div>
-			<div class="form-group">
-				<label class="form-label" for="email-address">
-					Your email address
-				</label>
-				<input class="form-control" id="email-address" type="text" name="email-address" style="width: 100%;">
-			</div>
-
-			<div class="form-group">
-				<label class="form-label" for="dep-name">
-					Your department or agency
-				</label>
-				<input class="form-control" id="dep-name" type="text" name="dep-name" style="width: 100%;">
-			</div>
-
-			<div class="form-group">
-				<label class="form-label" for="service-name">
-					The name of the service or team that you work on 
-				</label>
-				<input class="form-control" id="service-name" type="text" name="service-name" style="width: 100%;">
-			</div>
-
-			<div class="form-group">
-				<label class="form-label" for="your-message">
-					Your message
-				</label>
-				<textarea class="form-control" name="textarea" id="textarea" style="width: 100%;" rows="5"></textarea>
-			</div>
-
-			<div class="form-group">
-				<button class="button" type="submit">Submit</button>
-			</div>
-
-			<div class="column-one-third"></div>
+			<% if @errors && @errors.size > 0 %>
+				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+					<h2 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">There were problems submitting your request</h2>
+					<ul class="error-summary-list">
+						<% @errors.each do |field, err| %>
+							<li class="err"><a href="#" class="focus-field" data-field="<%= field.to_s %>"><%= err %></a></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<form action="/contact-us" method="post">
+				<%= erb :"partials/_input", :locals => {name: :person_name, label: "Name", hint: "Your Full Name", value: params[:person_name], error: errors_for(@ticket, :person_name)} %>
+				<%= erb :"partials/_input", :locals => {name: :person_email, label: "Email Address", hint: "Your email address", value: params[:person_email], error: errors_for(@ticket, :person_email)} %>
+				<%= erb :"partials/_input", :locals => {name: :department_name, label: "Department Name", hint: "The name of the organisation, department or agency you work for", value: params[:department_name], error: nil} %>
+				<%= erb :"partials/_input", :locals => {name: :service_name, label: "Service Name", hint: "The name of the service or team you work on", value: params[:service_name], error: nil} %>
+				<%= erb :"partials/_textarea", :locals => {name: :message, label: "Message", hint: "Your support enquiry.", value: params[:message], error: nil} %>
+				<div class="form-group">
+					<button class="button" type="submit">Submit</button>
+				</div>
+			</form>
 		</div>
+		<div class="column-one-third"></div>
 	</div>
 </div>

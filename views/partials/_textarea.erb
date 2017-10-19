@@ -1,14 +1,10 @@
-<div class="form-group <%= 'form-group-error' if error %>">
+<div class="form-group <%= 'form-group-error' if error %> form-group--<%= name %>">
 	<label class="form-label-bold" for="<%= name %>">
-		<%= label %>
-		<span class="form-hint">
-			<%= hint %>
-		</span>
+		<span class="form-label-bold"><%= label %></span>
+		<span class="form-hint"><%= hint %></span>
 		<% if error %>
-			<span class="error-message">
-				<%= error %>
-			</span>
+			<span class="error-message"><%= error %></span>
 		<% end %>
 	</Label>
-	<textarea class="form-control <%= 'form-control-error' if error %>" name="<%= name %>" id="textarea" rows="10"><%= value %></textarea>
+	<textarea class="form-control <%= 'form-control-error' if error %>" name="<%= name %>" id="textarea" rows="6" style="width:100%;"><%= value %></textarea>
 </div>
