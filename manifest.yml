@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: paas-proto
+  - name: paas-product-page
     buildpack: https://github.com/cloudfoundry/ruby-buildpack.git
     memory: 128M
     instances: 2
