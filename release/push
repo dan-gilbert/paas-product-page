@@ -2,8 +2,24 @@
 
 set -eu
 
-echo Deploy with zero downtime
+echo "Creating manifest"
+DESKPRO_API_KEY=`cat "../secrets/$SECRETS_FILE" | awk '/deskpro_api_key/ { print $2 }'`
+ruby -ryaml -e "
+	env = {
+		'DESKPRO_API_KEY' => '${DESKPRO_API_KEY}',
+		'DESKPRO_TEAM_ID' => '1',
+		'DESKPRO_ENDPOINT' => 'https://gaap.deskpro.com',
+	}
+	manifest = YAML.load_file('manifest.yml')
+	manifest['applications'].each { |app|
+		app['env'] = {} unless app['env']
+		app['env'].merge!(env)
+	}
+	File.write('manifest.yml', manifest.to_yaml)
+"
+
+echo "Deploy with zero downtime"
 cf blue-green-deploy paas-product-page
 
-echo Delete left over app
+echo "Delete left over app"
 cf delete -f paas-product-page-old
