@@ -199,30 +199,6 @@ New registration request from website:
 			end
 		end
 
-		# the current session account details
-		def account
-			session[:account] ||= {}
-		end
-
-		# the current active invite from session
-		def invite
-			invites = session[:invites] ||= {}
-			idx = (params[:invite] || '0')
-			invites[idx] ||= {:idx => idx.to_i}
-		end
-
-		def has_next_invite?
-			idx = (params[:invite] || '0').to_i+1
-			invites = session[:invites] ||= {}
-			invites.has_key? idx.to_s
-		end
-
-		def set_from_param(name)
-			if params[name].is_a?(String) && !params[name].empty?
-				account[name] = params[name]
-			end
-		end
-
 		# return comma seperated list of errors from validation if resourse has been validated
 		def errors_for(resource, field)
 			return nil if !resource.validated?
