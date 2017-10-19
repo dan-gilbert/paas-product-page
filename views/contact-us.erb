@@ -48,7 +48,7 @@
 				<%= erb :"partials/_input", :locals => {name: :service_name, label: "Service Name", hint: "The name of the service or team you work on", value: params[:service_name], error: nil} %>
 				<%= erb :"partials/_textarea", :locals => {name: :message, label: "Message", hint: "Your support enquiry.", value: params[:message], error: nil} %>
 				<div class="form-group">
-					<button class="button" type="submit">Submit</button>
+					<button id="contact-submit" class="button" type="submit">Submit</button>
 				</div>
 			</form>
 		</div>
